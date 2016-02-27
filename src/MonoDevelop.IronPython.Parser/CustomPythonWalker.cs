@@ -28,10 +28,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-using MonoDevelop.Projects.Dom;
 using MonoDevelop.IronPython.Parser.Dom;
 
 using IronPython.Compiler.Ast;
+using ICSharpCode.NRefactory.TypeSystem;
 
 namespace MonoDevelop.IronPython.Parser
 {

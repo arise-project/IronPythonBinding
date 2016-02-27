@@ -23,14 +23,15 @@
 using System;
 using System.Collections.Generic;
 
-using MonoDevelop.Projects.Dom;
-using MonoDevelop.Projects.Dom.Parser;
 using MonoDevelop.IronPython.Parser;
+using ICSharpCode.NRefactory.CSharp.Completion;
 using MonoDevelop.IronPython.Parser.Dom;
+using ICSharpCode.NRefactory.Semantics;
+using ICSharpCode.NRefactory.TypeSystem;
 
 namespace MonoDevelop.IronPython.Resolver
 {
-	public class PythonResolver: IResolver
+	public class PythonResolver
 	{
 		ProjectDom m_dom;
 		string m_filename;
@@ -41,7 +42,7 @@ namespace MonoDevelop.IronPython.Resolver
 			m_dom = dom;
 		}
 		
-		ResolveResult IResolver.Resolve (ExpressionResult expressionResult, DomLocation resolvePosition)
+		ResolveResult Resolve (CSharpCompletionEngineBase.ExpressionResult expressionResult, DomLocation resolvePosition)
 		{
 			var expr = expressionResult as PythonExpressionResult;
 			if (expr == null)
@@ -110,11 +111,11 @@ namespace MonoDevelop.IronPython.Resolver
 			return null;
 		}
 		
-		MethodResolveResult CreateMethodResult (IMethod method)
+		ResolveResult CreateMethodResult (IMethod method)
 		{
 			var l = new List<IMember> ();
 			l.Add (method);
-			return new MethodResolveResult (l);
+			return new ResolveResult (l);
 		}
 		
 //		IBaseMember NearestTo (IEnumerable<IBaseMember> items, DomLocation location)

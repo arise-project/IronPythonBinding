@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<Template originator = "Carlos Alberto Cortez" language = "IronPython">
+	<TemplateConfiguration>
+		<_Name>Console Project</_Name>
+		<_Category>IronPython</_Category>
+		<Icon>md-project|res:py-icon-32.png</Icon>
+		<LanguageName>IronPython</LanguageName>
+		<_Description>Creates a console IronPython project.</_Description>
+	</TemplateConfiguration>
+	
+	<Actions>
+		<Open filename = "main.py" />
+	</Actions>
+	
+	<Combine name = "${ProjectName}" directory = ".">
+		<Project name = "${ProjectName}" directory = "." type = "IronPython">			
+			<Options ExternalConsole = "True" MainModule = "main" />
+			<Files>
+				<File name = "main.py"><![CDATA[
+import clr
+from System import Console
+
+def main ():
+    Console.WriteLine ("Hello world!")
+
+if __name__ == "__main__":
+    main ()
+
+]]>					
+				</File>
+			</Files>
+		</Project>
+	</Combine>
+</Template>

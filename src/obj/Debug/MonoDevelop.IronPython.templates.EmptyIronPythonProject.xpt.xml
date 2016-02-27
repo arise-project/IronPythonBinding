@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<Template originator = "Carlos Alberto Cortez" language = "IronPython">
+	<TemplateConfiguration>
+		<_Name>Empty Project</_Name>
+		<_Category>IronPython</_Category>
+		<Icon>md-project|res:py-icon-32.png</Icon>
+		<LanguageName>IronPython</LanguageName>
+		<_Description>Creates an empty IronPython project.</_Description>
+	</TemplateConfiguration>
+	
+	<Combine name = "${ProjectName}" directory = ".">
+		<Project name = "${ProjectName}" directory = "." type = "IronPython" />
+	</Combine>
+</Template>

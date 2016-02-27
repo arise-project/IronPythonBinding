@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Template originator = "Carlos Alberto Cortez" language = "IronPython">
+	<TemplateConfiguration>
+		<_Name>Gtk+ Project</_Name>
+		<_Category>IronPython</_Category>
+		<Icon>md-project|res:py-icon-32.png</Icon>
+		<LanguageName>IronPython</LanguageName>
+		<_Description>Creates a Gtk+ IronPython project.</_Description>
+	</TemplateConfiguration>
+	
+	<Actions>
+		<Open filename = "main.py" />
+	</Actions>
+	
+	<Combine name = "${ProjectName}" directory = ".">
+		<Project name = "${ProjectName}" directory = "." type = "IronPython">			
+			<Options ExternalConsole = "True" MainModule = "main" />
+			<Files>
+				<File name = "main.py"><![CDATA[
+import clr
+clr.AddReferenceByPartialName ("gtk-sharp")
+
+from Gtk import Application
+from mainwindow import MainWindow
+
+def main ():
+    Application.Init ()
+    w = MainWindow ("MainWindow")
+    w.Show ()
+    Application.Run ()
+
+if __name__ == "__main__":
+    main ()
+
+]]>					
+				</File>
+				<File name = "mainwindow.py"><![CDATA[
+import clr
+clr.AddReferenceByPartialName ("gtk-sharp")
+
+from Gtk import Application, Window
+
+class MainWindow (Window):
+    
+    def __init__ (self, Title):
+        pass
+    
+    def OnDeleteEvent (*args):
+        Application.Quit ()
+]]>
+				</File>
+			</Files>
+		</Project>
+	</Combine>
+</Template>

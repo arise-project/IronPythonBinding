@@ -26,8 +26,6 @@
 
 using System;
 
-using MonoDevelop.Projects.Dom;
-using MonoDevelop.Projects.Dom.Parser;
 using MonoDevelop.IronPython.Parser.Dom;
 using MonoDevelop.IronPython.Resolver;
 
@@ -39,6 +37,7 @@ using Microsoft.Scripting;
 using Microsoft.Scripting.Hosting;
 using Microsoft.Scripting.Hosting.Providers;
 using Microsoft.Scripting.Runtime;
+using ICSharpCode.NRefactory.Documentation;
 
 // Workaround for a *quite* annoying mcs bug that happens
 // trying to use types under IronPython.Compiler (IronPython.dll),
@@ -48,7 +47,7 @@ using IronPythonAst = IronPython.Compiler.Ast.PythonAst;
 
 namespace MonoDevelop.IronPython.Parser
 {
-	public class PythonParser : AbstractParser
+	public class PythonParser
 	{
 		ScriptEngine pythonEngine;
 		CompilerOptions compilerOptions;
@@ -67,19 +66,19 @@ namespace MonoDevelop.IronPython.Parser
 			walker = new CustomPythonWalker ();
 		}
 		
-		public override IResolver CreateResolver (ProjectDom dom, object editor, string fileName)
+		public PythonResolver CreateResolver (ProjectDom dom, object editor, string fileName)
 		{
 			return new PythonResolver (dom, fileName);
 		}
 		
-		public override IExpressionFinder CreateExpressionFinder (ProjectDom dom)
+		public PythonExpressionFinder CreateExpressionFinder (ProjectDom dom)
 		{
 			return new PythonExpressionFinder (dom);
 		}
 		
-		public override ParsedDocument Parse (ProjectDom dom, string fileName, string content)
+		public DocumentationComment Parse (ProjectDom dom, string fileName, string content)
 		{
-			var document = new ParsedDocument (fileName);
+			var document = new DocumentationComment (fileName);
 			var compilationUnit = new PythonCompilationUnit (fileName);
 			document.CompilationUnit = compilationUnit;
 			

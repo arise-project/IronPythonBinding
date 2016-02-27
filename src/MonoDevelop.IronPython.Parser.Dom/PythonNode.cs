@@ -23,8 +23,6 @@
 using System;
 using System.Runtime.Serialization;
 
-using MonoDevelop.Projects.Dom;
-
 namespace MonoDevelop.IronPython.Parser.Dom
 {
 	[Serializable]

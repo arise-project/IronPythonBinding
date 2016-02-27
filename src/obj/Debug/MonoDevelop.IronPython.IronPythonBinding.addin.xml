@@ -1,0 +1,81 @@
+<Addin 	id			= "IronPythonBinding"
+		namespace	= "MonoDevelop"
+		name		= "IronPython Language Binding"
+		author		= "Carlos Alberto Cortez"
+		copyright	= "MIT/X11"
+		url			= "http://www.monodevelop.com"
+		description	= "IronPython Language Binding"
+		category	= "Language bindings"
+		version		= "2.8.4">
+	
+	<Runtime>
+		<Import assembly = "IronPythonBinding.dll" />
+		<Import assembly = "IronPython.dll" />
+		<Import assembly = "Microsoft.Dynamic.dll" />
+		<Import assembly = "Microsoft.Scripting.dll" />
+	</Runtime>
+	
+	<Dependencies>
+		<Addin id = "Core" version = "2.8.2" />
+		<Addin id = "Ide" version = "2.8.2" />	
+	</Dependencies>
+		
+	<Extension path = "/MonoDevelop/Ide/FileTemplates">
+		<FileTemplate id = "EmptyIronPythonFile" resource = "EmptyIronPythonFile.xft.xml" />
+	</Extension>
+	
+	<Extension path = "/MonoDevelop/Ide/ProjectTemplates">
+		<ProjectTemplate id = "EmptyIronPythonProject" resource = "EmptyIronPythonProject.xpt.xml" />
+		<ProjectTemplate id = "ConsoleIronPythonProject" resource = "ConsoleIronPythonProject.xpt.xml" />
+		<ProjectTemplate id = "ConsoleIronPythonProject" resource = "GtkIronPythonProject.xpt.xml" />
+	</Extension>
+	
+	<Extension path = "/MonoDevelop/Ide/FileFilters">
+		<FileFilter id = "IronPython"
+				inserbefore = "Assemblies"
+				_label = "Python files"
+				extensions = "*.py" />
+	</Extension>
+	
+	<Extension path = "/MonoDevelop/ProjectModel/LanguageBindings">
+		<LanguageBinding id = "IronPython"
+				supportedextensions = "*.py"
+				class = "MonoDevelop.IronPython.PythonLanguageBinding" />
+	</Extension>
+	
+	<Extension path = "/MonoDevelop/ProjectModel/ProjectBindings">
+		<ProjectBinding id = "IronPythonProject"
+				class = "MonoDevelop.IronPython.PythonProjectBinding" />
+	</Extension>
+	
+	<Extension path = "/MonoDevelop/ProjectModel/SerializableClasses">
+		<DataType class = "MonoDevelop.IronPython.PythonProject" />
+		<DataType class = "MonoDevelop.IronPython.PythonProjectConfiguration" />
+	</Extension>
+	
+	<Extension path = "/MonoDevelop/Ide/TextEditorExtensions">
+		<Class fileExtension = ".py" class = "MonoDevelop.IronPython.Formatting.PythonEditorIndentation" />
+		<Class fileExtension = ".py" class = "MonoDevelop.IronPython.Completion.PythonTextEditorCompletion" />
+	</Extension>
+	
+	<Extension path = "/MonoDevelop/ProjectModel/DomParser">
+		<Parser class = "MonoDevelop.IronPython.Parser.PythonParser" fileExtensions = ".py" />
+	</Extension>
+	
+	<Extension path = "/MonoDevelop/ProjectModel/Gui/ItemOptionPanels/Run">
+		<Condition id="ItemType" value="MonoDevelop.IronPython.PythonProject">
+			<Section
+				id          = "IronPythonOptionsPanel"
+	            _label      = "IronPython"
+	            insertafter = "General"
+	            class       = "MonoDevelop.IronPython.Gui.OptionsPanel"/>
+		</Condition>
+	</Extension>
+	
+	<Extension path = "/MonoDevelop/Ide/GlobalOptionsDialog/Other">
+		<Section id = "IronPythonMainPanel"
+				_label = "IronPython"
+				class = "MonoDevelop.IronPython.Gui.MainPanelBinding" />
+	</Extension>
+
+</Addin>

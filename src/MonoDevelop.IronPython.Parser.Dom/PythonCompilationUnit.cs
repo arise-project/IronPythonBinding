@@ -24,15 +24,16 @@ using System;
 using System.Collections.Generic;
 
 using MonoDevelop.Core;
-using MonoDevelop.Projects.Dom;
-using MonoDevelop.Projects.Dom.Parser;
+using ICSharpCode.NRefactory.CSharp;
+using ICSharpCode.NRefactory.MonoCSharp;
+using ICSharpCode.NRefactory.TypeSystem;
 
 namespace MonoDevelop.IronPython.Parser.Dom
 {
 	[Serializable]
 	public class PythonCompilationUnit : CompilationUnit
 	{
-		List<IBaseMember> m_AllWrapped = new List<IBaseMember> ();
+        List<MemberSpec> m_AllWrapped = new List<MemberSpec>();
 		
 		public PythonCompilationUnit (string fileName) : base (fileName)
 		{
@@ -42,8 +43,9 @@ namespace MonoDevelop.IronPython.Parser.Dom
 			get;
 			set;
 		}
-		
-		internal List<IBaseMember> AllWrapped {
+
+        internal List<MemberSpec> AllWrapped
+        {
 			get { return m_AllWrapped; }
 		}
 

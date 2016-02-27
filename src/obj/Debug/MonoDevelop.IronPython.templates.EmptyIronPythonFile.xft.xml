@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<Template originator = "Carlos Alberto Cortez" Language = "IronPython">
+	<TemplateConfiguration>
+		<_Name>Empty IronPython file</_Name>
+		<Icon>res:py-icon-32.png</Icon>
+		<_Category>IronPython</_Category>
+		<ProjectType>IronPython</ProjectType>
+		<_Description>Creates an empty IronPython file.</_Description>
+	</TemplateConfiguration>
+	
+	<TemplateFiles>
+		<File DefaultExtension = "py" DefaultName = "EmptyIronPythonFile" AddStandardHeader = "True">
+			<![CDATA[import clr
+]]>	
+		</File>
+	</TemplateFiles>
+</Template>

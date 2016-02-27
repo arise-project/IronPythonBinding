@@ -23,14 +23,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using ICSharpCode.NRefactory.CSharp.Completion;
 using Mono.TextEditor;
-using MonoDevelop.Projects.Dom;
-using MonoDevelop.Projects.Dom.Parser;
+using ICSharpCode.NRefactory.CSharp.Completion;
+
 
 namespace MonoDevelop.IronPython.Resolver
 {
-	public class PythonExpressionFinder: IExpressionFinder
+	public class PythonExpressionFinder
 	{
 //		ProjectDom m_dom;
 
@@ -40,12 +40,12 @@ namespace MonoDevelop.IronPython.Resolver
 		}
 		
 		#region IExpressionFinder implementation
-		bool IExpressionFinder.IsExpression (string text)
+		bool IsExpression (string text)
 		{
 			return true;
 		}
 		
-		ExpressionResult IExpressionFinder.FindExpression (object textEditorData, int offset)
+		CSharpCompletionEngineBase.ExpressionResult FindExpression (object textEditorData, int offset)
 		{
 			int begin, typebegin;
 			TextEditorData data = (TextEditorData)textEditorData;
@@ -58,10 +58,11 @@ namespace MonoDevelop.IronPython.Resolver
 			return new PythonExpressionResult (word, type);
 		}
 		
-		ExpressionResult IExpressionFinder.FindFullExpression (object textEditorData, int offset)
+		CSharpCompletionEngineBase.ExpressionResult FindFullExpression (object textEditorData, int offset)
 		{
 			throw new System.NotImplementedException();
 		}
+		
 		#endregion
 		
 		string GetWordAtOffset (TextEditorData text, int offset, out int begin)
@@ -149,7 +150,7 @@ namespace MonoDevelop.IronPython.Resolver
 		}
 	}
 	
-	public class PythonExpressionResult: ExpressionResult
+	public class PythonExpressionResult: CSharpCompletionEngineBase.ExpressionResult
 	{
 		public string Word {
 			get;

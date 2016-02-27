@@ -1,0 +1,12 @@
+/home/eugene/Downloads/IronPythonBinding/src/obj/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/home/eugene/Downloads/IronPythonBinding/src/obj/Debug/MonoDevelop.IronPython.IronPythonBinding.addin.xml
+/home/eugene/Downloads/IronPythonBinding/src/obj/Debug/MonoDevelop.IronPython.templates.EmptyIronPythonFile.xft.xml
+/home/eugene/Downloads/IronPythonBinding/src/obj/Debug/MonoDevelop.IronPython.templates.EmptyIronPythonProject.xpt.xml
+/home/eugene/Downloads/IronPythonBinding/src/obj/Debug/MonoDevelop.IronPython.templates.ConsoleIronPythonProject.xpt.xml
+/home/eugene/Downloads/IronPythonBinding/src/obj/Debug/MonoDevelop.IronPython.templates.GtkIronPythonProject.xpt.xml
+/home/eugene/Downloads/IronPythonBinding/src/obj/Debug/MonoDevelop.IronPython.gtk-gui.gui.stetic
+/home/eugene/Downloads/IronPythonBinding/src/obj/Debug/MonoDevelop.IronPython.Resources.Schema.sql
+/home/eugene/Downloads/IronPythonBinding/src/obj/Debug/MonoDevelop.IronPython.Resources.py-icon-32.png
+/home/eugene/Downloads/IronPythonBinding/src/bin/Debug/IronPython.dll
+/home/eugene/Downloads/IronPythonBinding/src/bin/Debug/Microsoft.Dynamic.dll
+/home/eugene/Downloads/IronPythonBinding/src/bin/Debug/Microsoft.Scripting.dll
